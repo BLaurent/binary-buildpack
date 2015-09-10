@@ -1,2 +1,7 @@
 #! /bin/sh
+
+export DEBIAN_FRONTEND=noninteractive
+apt-get update
+apt-get install -yq less openjdk-7-jre-headless net-tools vim-tiny sudo openssh-server
+
 exit 0
