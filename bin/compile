@@ -13,5 +13,6 @@ make -j8 -C /tmp/src/redis
 make -j8 -C /tmp/src/redis PREFIX=$HOME install
 rm -r /tmp/src/redis
 
+echo $HOME
 
 exit 0
