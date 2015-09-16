@@ -19,4 +19,7 @@ ls -R $HOME
 build_path = $1
 cache_path = $2
 
+echo $build_path
+echo $cache_path
+
 exit 0
