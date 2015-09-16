@@ -1,25 +1,20 @@
 #! /bin/sh
 
+BUILD_PATH=$1
+CACHE_PATH=$2
+
 REDIS_VERSION="3.0.4"
 REDIS_DOWNLOAD_URL="http://download.redis.io/releases/redis-3.0.4.tar.gz"
 REDIS_DOWNLOAD_SHA1="cccc58b2b8643930840870f17280fcae57ed7675"
 
-mkdir -p /tmp/src/redis
-mkdir -p /tmp/bin/redis
+mkdir -p $CACHE_PATH/src/redis
+mkdir -p $BUILD_PATH/redis
 curl -sSL ${REDIS_DOWNLOAD_URL} -o redis.tar.gz
 echo ${REDIS_DOWNLOAD_SHA1} *redis.tar.gz | sha1sum -c -
-tar -xzf redis.tar.gz -C /tmp/src/redis --strip-components=1
+tar -xzf redis.tar.gz -C $CACHE_PATH/src/redis --strip-components=1
 rm redis.tar.gz
-make -j10 -C /tmp/src/redis
-make -j10 -C /tmp/src/redis PREFIX=/tmp/bin/redis install
-rm -r /tmp/src/redis
-
-ls -R $HOME
-
-BUILD_PATH=$1
-CACHE_PATH=$2
-
-echo $BUILD_PATH
-echo $CACHE_PATH
+make -j10 -C $CACHE_PATH/src/redis
+make -j10 -C $CACHE_PATH/src/redis PREFIX=$BUILD_PATH/redis install
+rm -r $CACHE_PATH/src/redis
 
 exit 0
