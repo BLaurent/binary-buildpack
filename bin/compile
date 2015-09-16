@@ -9,8 +9,9 @@ curl -sSL ${REDIS_DOWNLOAD_URL} -o redis.tar.gz
 echo ${REDIS_DOWNLOAD_SHA1} *redis.tar.gz | sha1sum -c -
 tar -xzf redis.tar.gz -C /tmp/src/redis --strip-components=1
 rm redis.tar.gz
-make -j8 -C /tmp/src/redis --prefix=$HOME
-make -j8 -C /tmp/src/redis install
+make -j8 -C /tmp/src/redis
+make -j8 -C /tmp/src/redis PREFIX=$HOME install
+rm -r /tmp/src/redis
 
 
 exit 0
