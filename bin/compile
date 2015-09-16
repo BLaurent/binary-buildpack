@@ -11,8 +11,7 @@ tar -xzf redis.tar.gz -C /tmp/src/redis --strip-components=1
 rm redis.tar.gz
 make -j8 -C /tmp/src/redis
 make -j8 -C /tmp/src/redis PREFIX=$HOME install
+make test
 rm -r /tmp/src/redis
-
-echo $HOME
 
 exit 0
