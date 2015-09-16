@@ -10,7 +10,7 @@ echo ${REDIS_DOWNLOAD_SHA1} *redis.tar.gz | sha1sum -c -
 tar -xzf redis.tar.gz -C /tmp/src/redis --strip-components=1
 rm redis.tar.gz
 make -j10 -C /tmp/src/redis
-make -j10 -C /tmp/src/redis PREFIX=$HOME install
+make -j10 -C /tmp/src/redis PREFIX=$HOME/app/redis install
 rm -r /tmp/src/redis
 
 ls -R $HOME
