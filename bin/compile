@@ -6,7 +6,7 @@ REDIS_DOWNLOAD_SHA1="cccc58b2b8643930840870f17280fcae57ed7675"
 
 mkdir -p /tmp/src/redis
 curl -sSL ${REDIS_DOWNLOAD_URL} -o redis.tar.gz
-echo ${REDIS_DOWNLOAD_SHA1} *redis.tar.gz" | sha1sum -c -
+echo ${REDIS_DOWNLOAD_SHA1} *redis.tar.gz | sha1sum -c -
 tar -xzf redis.tar.gz -C /tmp/src/redis --strip-components=1
 rm redis.tar.gz
 make -C /tmp/src/redis
