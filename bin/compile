@@ -4,12 +4,13 @@ export REDIS_VERSION=3.0.4
 export REDIS_DOWNLOAD_URL=http://download.redis.io/releases/redis-3.0.4.tar.gz
 export REDIS_DOWNLOAD_SHA1=cccc58b2b8643930840870f17280fcae57ed7675
 
-mkdir -p /tmp/src/redis
+mkdir -p /usr/src/redis
 curl -sSL "$REDIS_DOWNLOAD_URL" -o redis.tar.gz
 echo "$REDIS_DOWNLOAD_SHA1 *redis.tar.gz" | sha1sum -c -
 tar -xzf redis.tar.gz -C /tmp/src/redis --strip-components=1
 rm redis.tar.gz
-make -C /tmp/src/redis
+make -C /usr/src/redis
 make -C /usr/src/redis install
+rm -r /usr/src/redis
 
 exit 0
