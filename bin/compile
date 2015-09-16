@@ -16,10 +16,10 @@ rm -r /tmp/src/redis
 
 ls -R $HOME
 
-build_path = $1
-cache_path = $2
+BUILD_PATH=$1
+CACHE_PATH=$2
 
-echo $build_path
-echo $cache_path
+echo $BUILD_PATH
+echo $CACHE_PATH
 
 exit 0
